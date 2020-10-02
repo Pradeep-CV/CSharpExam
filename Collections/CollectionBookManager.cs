@@ -87,10 +87,12 @@ namespace Collections
         {
             foreach (var bk in books)
             {
-                Console.WriteLine(bk.BookID);
-                Console.WriteLine(bk.Title);
-                Console.WriteLine(bk.Author);
-                Console.WriteLine(bk.Price);
+                Console.WriteLine("-------------------------------");
+                Console.WriteLine($"Book ID: {bk.BookID}");
+                Console.WriteLine($"Title: {bk.Title}");
+                Console.WriteLine($"Author: {bk.Author}");
+                Console.WriteLine($"Price: {bk.Price}");
+                Console.WriteLine("-------------------------------");
             }
             return true;
         }
@@ -107,9 +109,9 @@ namespace Collections
             mgr.AddBook(bk1);
             mgr.AddBook(bk2);
             mgr.AddBook(bk3);
-            //mgr.ViewAllBooks();
+            mgr.ViewAllBooks();
             mgr.UpdateBook(100);
-            //mgr.ViewAllBooks();
+            mgr.ViewAllBooks();
             Book[] temp = mgr.FindBooks("He");
             foreach (var item in temp)
             {
@@ -119,5 +121,6 @@ namespace Collections
                 Console.WriteLine(item.Price);
             }
         }
+
     }
 }
