@@ -149,6 +149,7 @@
     <Content Include="Views\MVC\ShowHtml.cshtml" />
     <Content Include="Views\MVC\Display.cshtml" />
     <Content Include="Views\MVC\Find.cshtml" />
+    <Content Include="Views\MVC\AddEmployee.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

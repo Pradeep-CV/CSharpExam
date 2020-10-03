@@ -33,5 +33,27 @@ namespace ExamWebApp.Controllers
             context.SaveChanges();
             return RedirectToAction("Display");
         }
+        public ViewResult AddEmployee()
+        {
+            var model = new EmpTable();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AddEmployee(EmpTable emp)
+        {
+            var context = new MyDatabase();
+            context.EmpTables.Add(emp);
+            context.SaveChanges();
+            return RedirectToAction("Display");
+        }
+        public ActionResult DeleteEmployee(string id)
+        {
+            int EmpId = int.Parse(id);
+            var context = new MyDatabase();
+            var model = context.EmpTables.FirstOrDefault((e) => e.EmpID == EmpId);
+            context.EmpTables.Remove(model);
+            context.SaveChanges();
+            return RedirectToAction("Display");
+        }
     }
 }

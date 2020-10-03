@@ -29,10 +29,17 @@
                     <td>@emp.EmpName</td>
                     <td>@emp.EmpAddress</td>
                     <td>@emp.EmpSalary</td>
-                    <td>@Html.ActionLink("Edit", "Find", new { id = emp.EmpID })</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Find", new { id = emp.EmpID })
+                        @Html.ActionLink("Delete", "DeleteEmployee", new { id = emp.EmpID })
+
+                    </td>
                 </tr>
             }
         </table>
+    </div>
+    <div>
+        @Html.ActionLink("New Registraion", "AddEmployee")
     </div>
 </body>
 </html>
