@@ -41,7 +41,7 @@ namespace Collections
         {
             foreach (Book bk in books)
             {
-                if(bk.BookID == id)
+                if (bk.BookID == id)
                 {
                     books.Remove(bk);
                     return true;
@@ -67,7 +67,7 @@ namespace Collections
         {
             foreach (Book bk in books)
             {
-                if(bk.BookID == id)
+                if (bk.BookID == id)
                 {
                     Console.Write("Enter the New Title: ");
                     string newtitle = Console.ReadLine();

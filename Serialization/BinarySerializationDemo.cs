@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 namespace Serialization
 {
     [Serializable]
-    class Student
+    class Vehicle
     {
-        public string Name { get; set; }
-        public int RollNo { get; set; }
-        public string Address { get; set; }
+        public string Model { get; set; }
+        public string Brand { get; set; }
+        public string ChasisNo { get; set; }
+        public float Mileage { get; set; }
         public override string ToString()
         {
-            return string.Format($"Name: {Name}\nRoll No: {RollNo}\nAddress: {Address}");
+            return string.Format($"Model: {Model}\nBrand: {Brand}\nChasis No: {ChasisNo}\nMileage: {Mileage}");
         }
     }
     class BinarySerializationDemo
@@ -27,9 +28,9 @@ namespace Serialization
         }
         private static void BinarySerialization()
         {
-            Console.Write("Read or Write? (R/W): ");
+            Console.Write("Serialize or Deserialize? (S/D): ");
             string choice = Console.ReadLine();
-            if (choice.ToLower() == "w")
+            if (choice.ToLower() == "s")
                 serialize();
             else
                 deserialize();
@@ -37,7 +38,7 @@ namespace Serialization
 
         private static void serialize()
         {
-            Student s = new Student { Name = "Raj", RollNo = 14, Address = "Mysore" };
+            Vehicle s = new Vehicle { Model = "i20", Brand = "Hyundai", ChasisNo = "HY0022002019007878", Mileage = 18.2f };
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = new FileStream("Demo.bin", FileMode.OpenOrCreate, FileAccess.Write);
             bf.Serialize(fs, s);
@@ -48,10 +49,11 @@ namespace Serialization
         {
             FileStream fs = new FileStream("Demo.bin", FileMode.Open, FileAccess.Read);
             BinaryFormatter bf = new BinaryFormatter();
-            Student s = bf.Deserialize(fs) as Student;
-            Console.WriteLine(s.Name);
-            Console.WriteLine(s.RollNo);
-            Console.WriteLine(s.Address);
+            Vehicle s = bf.Deserialize(fs) as Vehicle;
+            Console.WriteLine(s.Model);
+            Console.WriteLine(s.Brand);
+            Console.WriteLine(s.ChasisNo);
+            Console.WriteLine(s.Mileage);
             fs.Close();
         }
     }
