@@ -76,7 +76,7 @@ namespace Customer
                 Console.WriteLine($"ID: {cm.CustomerID}");
                 Console.WriteLine($"Name: {cm.Name}");
                 Console.WriteLine($"Address: {cm.Address}");
-                Console.WriteLine($"Author: {cm.Salary}");
+                Console.WriteLine($"Salary: {cm.Salary}");
                 Console.WriteLine("-------------------------------");
             }
             return true;
@@ -94,9 +94,10 @@ namespace Customer
             mgr.AddCustomer(c1);
             mgr.AddCustomer(c2);
             mgr.AddCustomer(c3);
-            
+            Console.WriteLine("Viewing All Customers");
             mgr.ViewAllCustomer();
             mgr.DeleteCustomer(20);
+            Console.WriteLine("Viewing All Customers after Deleting ID: 20");
             mgr.ViewAllCustomer();
         }
 
